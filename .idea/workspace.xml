@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc4720a6-b30b-468c-b5a9-271f17d0d813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/spotify/oauth2/tests/PlaylistsTests.java" afterDir="false" />
-    </list>
+    <list default="true" id="dc4720a6-b30b-468c-b5a9-271f17d0d813" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +35,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "TestNG.PlaylistsTests.createPlaylistTest.executor": "Run",
+    "TestNG.PlaylistsTests.createPlaylistWithExpiredTokenTest.executor": "Run",
     "TestNG.PlaylistsTests.createPlaylistWithoutNameTest.executor": "Run",
     "TestNG.PlaylistsTests.executor": "Run",
     "TestNG.PlaylistsTests.getPlaylistTest.executor": "Run",
