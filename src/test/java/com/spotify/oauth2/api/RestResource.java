@@ -2,9 +2,23 @@ package com.spotify.oauth2.api;
 
 import io.restassured.response.Response;
 
+import java.util.HashMap;
+
 import static io.restassured.RestAssured.given;
 
 public class RestResource {
+
+    public static Response postAccount(HashMap<String, String> formParams) {
+        return given()
+                .spec(SpecBuilder.getAccountRequestSpec())
+                .formParams(formParams)
+                .when()
+                .post(Route.API + Route.TOKEN)
+                .then()
+                .spec(SpecBuilder.responseSpec())
+                .extract()
+                .response();
+    }
 
     public static Response post(String endpoint, String accessToken, Object payload) {
         return given()

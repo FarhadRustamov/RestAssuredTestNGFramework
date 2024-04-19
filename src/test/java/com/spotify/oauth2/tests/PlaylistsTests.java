@@ -1,14 +1,11 @@
 package com.spotify.oauth2.tests;
 
-import com.spotify.oauth2.api.SpecBuilder;
 import com.spotify.oauth2.api.applicationApi.PlaylistApi;
 import com.spotify.oauth2.pojo.ErrorRoot;
 import com.spotify.oauth2.pojo.Playlist;
-import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
