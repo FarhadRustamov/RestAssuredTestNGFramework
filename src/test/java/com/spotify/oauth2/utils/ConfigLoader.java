@@ -41,7 +41,7 @@ public class ConfigLoader {
         else throw new RuntimeException("property refresh_token is not specified in the config.properties file");
     }
 
-    public String getUser(){
+    public String getUserId(){
         String prop = properties.getProperty("user_id");
         if(prop != null) return prop;
         else throw new RuntimeException("property user_id is not specified in the config.properties file");

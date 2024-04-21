@@ -3,6 +3,7 @@ package com.spotify.oauth2.tests;
 import com.spotify.oauth2.api.applicationApi.PlaylistApi;
 import com.spotify.oauth2.pojo.ErrorRoot;
 import com.spotify.oauth2.pojo.Playlist;
+import com.spotify.oauth2.utils.DataLoader;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -11,24 +12,40 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class PlaylistsTests {
 
+    public Playlist payloadBuilder(String name, String description, boolean _public) {
+        return new Playlist().setName(name)
+                .setDescription(description)
+                .setPublic(_public);
+    }
+
+    public void assertPlaylistEqual(Playlist payload, Playlist playlistResponse) {
+        assertThat(playlistResponse.getName(), equalTo(payload.getName()));
+        assertThat(playlistResponse.getDescription(), equalTo(payload.getDescription()));
+        assertThat(playlistResponse.getPublic(), equalTo(payload.getPublic()));
+    }
+
+    public void assertErrorEqual(ErrorRoot errorRootResponse, int expectedStatusCode, String expectedMessage) {
+        assertThat(errorRootResponse.getError().getStatus(), equalTo(expectedStatusCode));
+        assertThat(errorRootResponse.getError().getMessage(), equalTo(expectedMessage));
+    }
+
+    public void assertStatusCode(int actualStatusCode, int expectedStatusCode) {
+        assertThat(actualStatusCode, equalTo(expectedStatusCode));
+    }
+
     @Test
     public void createPlaylistTest() {
-        Playlist playlistRequest = new Playlist().setName("Farhad's playlist")
-                .setDescription("Farhad's playlist description")
-                .setPublic(false);
+        Playlist payload = payloadBuilder("Farhad's playlist", "Farhad's playlist description", false);
 
-        Response response = PlaylistApi.post(playlistRequest);
-        Playlist playlistResponse = response.as(Playlist.class);
+        Response response = PlaylistApi.post(payload);
 
-        assertThat(response.statusCode(), equalTo(201));
-        assertThat(playlistResponse.getName(), equalTo(playlistRequest.getName()));
-        assertThat(playlistResponse.getDescription(), equalTo(playlistRequest.getDescription()));
-        assertThat(playlistResponse.getPublic(), equalTo(playlistRequest.getPublic()));
+        assertStatusCode(response.statusCode(), 201);
+        assertPlaylistEqual(payload, response.as(Playlist.class));
     }
 
     @Test
     public void getPlaylistTest() {
-        Response response = PlaylistApi.get("0YBkdwfzXqI0JKPDmwFWIv");
+        Response response = PlaylistApi.get(DataLoader.getInstance().getGetPlaylistId());
         Playlist playlistResponse = response.as(Playlist.class);
 
         assertThat(response.statusCode(), equalTo(200));
@@ -39,44 +56,31 @@ public class PlaylistsTests {
 
     @Test
     public void updatePlaylistTest() {
-        Playlist playlistRequest = new Playlist()
-                .setName("Updated playlist Name - Farhad")
-                .setDescription("Updated playlist description - Farhad")
-                .setPublic(false);
+        Playlist payload = payloadBuilder("Updated playlist Name - Farhad", "Updated playlist description - Farhad", false);
 
-        Response response = PlaylistApi.put("7CKg8CGgG0G9cD9xeWkCRg", playlistRequest);
+        Response response = PlaylistApi.put(DataLoader.getInstance().getUpdatePlaylistId(), payload);
 
         assertThat(response.statusCode(), equalTo(200));
     }
 
     @Test
     public void createPlaylistWithoutNameTest() {
-        Playlist playlistRequest = new Playlist()
-                .setName("")
-                .setDescription("Farhad's playlist description")
-                .setPublic(false);
+        Playlist payload = payloadBuilder("", "Farhad's playlist description", false);
 
-        Response response = PlaylistApi.post(playlistRequest);
-        ErrorRoot errorRootResponse = response.as(ErrorRoot.class);
+        Response response = PlaylistApi.post(payload);
 
-        assertThat(response.statusCode(), equalTo(400));
-        assertThat(errorRootResponse.getError().getStatus(), equalTo(400));
-        assertThat(errorRootResponse.getError().getMessage(), equalTo("Missing required field: name"));
+        assertStatusCode(response.statusCode(), 400);
+        assertErrorEqual(response.as(ErrorRoot.class), 400, "Missing required field: name");
     }
 
     @Test
     public void createPlaylistWithExpiredTokenTest() {
         String invalidToken = "12345";
-        Playlist playlistRequest = new Playlist()
-                .setName("Farhad's playlist")
-                .setDescription("Farhad's playlist description")
-                .setPublic(false);
+        Playlist payload = payloadBuilder("Farhad's playlist", "Farhad's playlist description", false);
 
-        Response response = PlaylistApi.post(playlistRequest, invalidToken);
-        ErrorRoot errorRootResponse = response.as(ErrorRoot.class);
+        Response response = PlaylistApi.post(payload, invalidToken);
 
-        assertThat(response.statusCode(), equalTo(400));
-        assertThat(errorRootResponse.getError().getStatus(), equalTo(400));
-        assertThat(errorRootResponse.getError().getMessage(), equalTo("Only valid bearer authentication supported"));
+        assertStatusCode(response.statusCode(), 400);
+        assertErrorEqual(response.as(ErrorRoot.class), 400, "Only valid bearer authentication supported");
     }
 }
