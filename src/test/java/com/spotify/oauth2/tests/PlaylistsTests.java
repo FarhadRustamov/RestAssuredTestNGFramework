@@ -13,15 +13,13 @@ import static org.hamcrest.Matchers.equalTo;
 public class PlaylistsTests {
 
     public Playlist payloadBuilder(String name, String description, boolean _public) {
-        return new Playlist().setName(name)
-                .setDescription(description)
-                .setPublic(_public);
+        return Playlist.builder().name(name).description(description)._public(_public).build();
     }
 
     public void assertPlaylistEqual(Playlist payload, Playlist playlistResponse) {
         assertThat(playlistResponse.getName(), equalTo(payload.getName()));
         assertThat(playlistResponse.getDescription(), equalTo(payload.getDescription()));
-        assertThat(playlistResponse.getPublic(), equalTo(payload.getPublic()));
+        assertThat(playlistResponse.get_public(), equalTo(payload.get_public()));
     }
 
     public void assertErrorEqual(ErrorRoot errorRootResponse, int expectedStatusCode, String expectedMessage) {
@@ -32,6 +30,7 @@ public class PlaylistsTests {
     public void assertStatusCode(int actualStatusCode, int expectedStatusCode) {
         assertThat(actualStatusCode, equalTo(expectedStatusCode));
     }
+
 
     @Test
     public void createPlaylistTest() {
@@ -51,7 +50,7 @@ public class PlaylistsTests {
         assertThat(response.statusCode(), equalTo(200));
         assertThat(playlistResponse.getName(), equalTo("Farhad's playlist"));
         assertThat(playlistResponse.getDescription(), equalTo("Farhad&#x27;s playlist description"));
-        assertThat(playlistResponse.getPublic(), equalTo(true));
+        assertThat(playlistResponse.get_public(), equalTo(true));
     }
 
     @Test
