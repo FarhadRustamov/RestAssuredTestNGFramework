@@ -4,6 +4,7 @@ import com.spotify.oauth2.api.applicationApi.PlaylistApi;
 import com.spotify.oauth2.pojo.ErrorRoot;
 import com.spotify.oauth2.pojo.Playlist;
 import com.spotify.oauth2.utils.DataLoader;
+import io.qameta.allure.Description;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -32,7 +33,8 @@ public class PlaylistsTests {
     }
 
 
-    @Test
+    @Description("This is createPlaylistTest's description")
+    @Test(testName = "Farhad")
     public void createPlaylistTest() {
         Playlist payload = payloadBuilder("Farhad's playlist", "Farhad's playlist description", false);
 
@@ -42,6 +44,7 @@ public class PlaylistsTests {
         assertPlaylistEqual(payload, response.as(Playlist.class));
     }
 
+    @Description("This is getPlaylistTest's description")
     @Test
     public void getPlaylistTest() {
         Response response = PlaylistApi.get(DataLoader.getInstance().getGetPlaylistId());
@@ -53,6 +56,7 @@ public class PlaylistsTests {
         assertThat(playlistResponse.get_public(), equalTo(true));
     }
 
+    @Description("This is updatePlaylistTest's description")
     @Test
     public void updatePlaylistTest() {
         Playlist payload = payloadBuilder("Updated playlist Name - Farhad", "Updated playlist description - Farhad", false);
@@ -62,6 +66,7 @@ public class PlaylistsTests {
         assertThat(response.statusCode(), equalTo(200));
     }
 
+    @Description("This is createPlaylistWithoutNameTest's description")
     @Test
     public void createPlaylistWithoutNameTest() {
         Playlist payload = payloadBuilder("", "Farhad's playlist description", false);
@@ -72,6 +77,7 @@ public class PlaylistsTests {
         assertErrorEqual(response.as(ErrorRoot.class), 400, "Missing required field: name");
     }
 
+    @Description("This is createPlaylistWithExpiredTokenTest's description")
     @Test
     public void createPlaylistWithExpiredTokenTest() {
         String invalidToken = "12345";
