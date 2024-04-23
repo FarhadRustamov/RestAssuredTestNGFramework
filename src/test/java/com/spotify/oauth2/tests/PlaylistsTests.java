@@ -4,13 +4,14 @@ import com.spotify.oauth2.api.applicationApi.PlaylistApi;
 import com.spotify.oauth2.pojo.ErrorRoot;
 import com.spotify.oauth2.pojo.Playlist;
 import com.spotify.oauth2.utils.DataLoader;
-import io.qameta.allure.Description;
+import io.qameta.allure.*;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
+@Epic("Epichik")
 public class PlaylistsTests {
 
     public Playlist payloadBuilder(String name, String description, boolean _public) {
@@ -32,9 +33,15 @@ public class PlaylistsTests {
         assertThat(actualStatusCode, equalTo(expectedStatusCode));
     }
 
-
-    @Description("This is createPlaylistTest's description")
-    @Test(testName = "Farhad")
+    @Story("Storichik")
+    @Feature("Featurichik")
+    @Link(name = "nameOfLink", url = "yandex.com")
+    @Issue(value = "1111")
+    @TmsLink(value = "2222")
+    @Description(value = "This is createPlaylistTest's description")
+    @Severity(SeverityLevel.CRITICAL)
+    @Owner(value = "Farhad Rustamov")
+    @Test(description = "Farhad")
     public void createPlaylistTest() {
         Playlist payload = payloadBuilder("Farhad's playlist", "Farhad's playlist description", false);
 
