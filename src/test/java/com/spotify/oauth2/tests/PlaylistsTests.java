@@ -18,17 +18,20 @@ public class PlaylistsTests {
         return Playlist.builder().name(name).description(description)._public(_public).build();
     }
 
+    @Step()
     public void assertPlaylistEqual(Playlist payload, Playlist playlistResponse) {
         assertThat(playlistResponse.getName(), equalTo(payload.getName()));
         assertThat(playlistResponse.getDescription(), equalTo(payload.getDescription()));
         assertThat(playlistResponse.get_public(), equalTo(payload.get_public()));
     }
 
+    @Step
     public void assertErrorEqual(ErrorRoot errorRootResponse, int expectedStatusCode, String expectedMessage) {
         assertThat(errorRootResponse.getError().getStatus(), equalTo(expectedStatusCode));
         assertThat(errorRootResponse.getError().getMessage(), equalTo(expectedMessage));
     }
 
+    @Step("assertStatusCode: {actualStatusCode} and {expectedStatusCode}")
     public void assertStatusCode(int actualStatusCode, int expectedStatusCode) {
         assertThat(actualStatusCode, equalTo(expectedStatusCode));
     }

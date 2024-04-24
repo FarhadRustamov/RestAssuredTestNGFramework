@@ -1,5 +1,6 @@
 package com.spotify.oauth2.api;
 
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 
 import java.util.HashMap;
@@ -20,6 +21,7 @@ public class RestResource {
                 .response();
     }
 
+    @Step("post = {endpoint}, {accessToken}, {payload}")
     public static Response post(String endpoint, String accessToken, Object payload) {
         return given()
                 .spec(SpecBuilder.requestSpec())
@@ -33,6 +35,7 @@ public class RestResource {
                 .response();
     }
 
+    @Step("get = {endpoint}, {accessToken}")
     public static Response get(String endpoint, String accessToken) {
         return given()
                 .spec(SpecBuilder.requestSpec())
@@ -45,6 +48,7 @@ public class RestResource {
                 .response();
     }
 
+    @Step("put = {endpoint}, {accessToken}, {payload}")
     public static Response put(String endpoint, String accessToken, Object payload) {
         return given()
                 .spec(SpecBuilder.requestSpec())
