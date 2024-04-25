@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc4720a6-b30b-468c-b5a9-271f17d0d813" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/StatusCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/utils/FakerUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/RestResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/RestResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/SpecBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/SpecBuilder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/applicationApi/PlaylistApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/applicationApi/PlaylistApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/TokenManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/tests/PlaylistsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/tests/PlaylistsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -21,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -54,7 +56,7 @@
     &quot;TestNG.PlaylistsTests.updatePlaylistTest.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/farhadrustamov/IdeaProjects/SpotifyAPITests/src/test/java/com/spotify/oauth2/pojo&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/farhadrustamov/IdeaProjects/SpotifyAPITests&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,

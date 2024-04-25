@@ -25,7 +25,7 @@ public class RestResource {
     public static Response post(String endpoint, String accessToken, Object payload) {
         return given()
                 .spec(SpecBuilder.requestSpec())
-                .header("Authorization", accessToken)
+                .auth().oauth2(accessToken)
                 .body(payload)
                 .when()
                 .post(endpoint)
@@ -39,7 +39,7 @@ public class RestResource {
     public static Response get(String endpoint, String accessToken) {
         return given()
                 .spec(SpecBuilder.requestSpec())
-                .header("Authorization", accessToken)
+                .auth().oauth2(accessToken)
                 .when()
                 .get(endpoint)
                 .then()
@@ -52,7 +52,7 @@ public class RestResource {
     public static Response put(String endpoint, String accessToken, Object payload) {
         return given()
                 .spec(SpecBuilder.requestSpec())
-                .header("Authorization", accessToken)
+                .auth().oauth2(accessToken)
                 .body(payload)
                 .when()
                 .put(endpoint)

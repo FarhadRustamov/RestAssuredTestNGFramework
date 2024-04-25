@@ -25,7 +25,7 @@ public class TokenManager {
         } catch (Exception e) {
             throw new RuntimeException("Failed to get token");
         }
-        return "Bearer " + access_token;
+        return access_token;
     }
 
     private static Response renewToken() {
