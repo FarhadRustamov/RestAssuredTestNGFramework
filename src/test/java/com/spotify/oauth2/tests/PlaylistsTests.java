@@ -14,7 +14,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 
 @Epic("Epichik")
-public class PlaylistsTests {
+public class PlaylistsTests extends BaseTest{
 
     public Playlist payloadBuilder(String name, String description, boolean _public) {
         return Playlist.builder().name(name).description(description)._public(_public).build();

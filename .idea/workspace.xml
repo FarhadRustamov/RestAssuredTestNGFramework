@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc4720a6-b30b-468c-b5a9-271f17d0d813" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/StatusCode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/utils/FakerUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/tests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/RestResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/RestResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/TokenManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/api/TokenManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/tests/PlaylistsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/spotify/oauth2/tests/PlaylistsTests.java" afterDir="false" />
     </list>
@@ -21,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -111,7 +109,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlaylistsTests.createPlaylistWithExpiredTokenTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaylistsTests.createPlaylistWithExpiredTokenTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SpotifyAPITests" />
       <extension name="coverage">
         <pattern>
@@ -129,7 +127,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlaylistsTests.createPlaylistWithoutNameTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaylistsTests.createPlaylistWithoutNameTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SpotifyAPITests" />
       <extension name="coverage">
         <pattern>
@@ -147,7 +145,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlaylistsTests.updatePlaylistTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="PlaylistsTests.updatePlaylistTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="SpotifyAPITests" />
       <extension name="coverage">
         <pattern>
