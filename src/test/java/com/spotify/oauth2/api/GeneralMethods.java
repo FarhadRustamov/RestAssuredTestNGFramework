@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-public class RestResource {
+public class GeneralMethods {
 
     public static Response postAccount(HashMap<String, String> formParams) {
         return given()

@@ -35,7 +35,7 @@ public class TokenManager {
         formParams.put("client_id", ConfigLoader.getInstance().getClientId());
         formParams.put("client_secret", ConfigLoader.getInstance().getClientSecret());
 
-        Response response = RestResource.postAccount(formParams);
+        Response response = GeneralMethods.postAccount(formParams);
 
         if (response.statusCode() != 200) {
             throw new RuntimeException("Renew token failed!");
